@@ -1,0 +1,31 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Fri Oct 24 15:51:07 2025
+# Process ID         : 7936
+# Current directory  : D:/Ð? án/Ð? án thi?t k? lu?n lý/uart-to-usb-v2-main
+# Command line       : vivado.exe -mode batch -source deploy.tcl
+# Log file           : D:/Ð? án/Ð? án thi?t k? lu?n lý/uart-to-usb-v2-main/vivado.log
+# Journal file       : D:/Ð? án/Ð? án thi?t k? lu?n lý/uart-to-usb-v2-main\vivado.jou
+# Running On         : PcCuaLQ
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 19045
+# Processor Detail   : Intel(R) Xeon(R) E-2286M  CPU @ 2.40GHz
+# CPU Frequency      : 2400 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 34156 MB
+# Swap memory        : 5100 MB
+# Total Virtual      : 39256 MB
+# Available Virtual  : 24559 MB
+#-----------------------------------------------------------
+source deploy.tcl
+# set proj_name "riscv_led_shell"
+# set proj_dir [file normalize "./vivado_project"]
+# if {[file exists $proj_dir]} { file delete -force $proj_dir }
+# create_project $proj_name $proj_dir -part xc7z020clg400-1
+WARNING: [Device 21-436] No parts matched 'xc7z020clg400-1'
+ERROR: [Coretcl 2-106] Specified part could not be found.
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 24 15:51:09 2025...
