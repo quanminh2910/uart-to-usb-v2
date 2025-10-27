@@ -14,7 +14,7 @@ module top(
     wire mem_valid, mem_ready;
     wire [31:0] mem_addr, mem_wdata, mem_rdata;
     wire [3:0] mem_wstrb;
-
+    
     picorv32 #(.ENABLE_IRQ(0)) cpu(
         .clk(clk), .resetn(rstn),
         .mem_valid(mem_valid), .mem_ready(mem_ready),
@@ -27,20 +27,24 @@ module top(
 
     reg [7:0] uart_wdata; reg uart_write; wire [7:0] uart_rdata;
     wire uart_tx_busy, uart_rx_ready;
+    //
+    wire [7:0] uart_rdata_from_core; 
+    wire       uart_ack_from_core; 
+    //
 
 `ifdef USE_JTAG_UART
     jtag_uart UART(
         .clk(clk), .rstn(rstn),
-        .cpu_wr(uart_write), .cpu_addr(2'd0),
-        .cpu_wdata(uart_wdata), .cpu_rdata(uart_rdata),
-        .cpu_ack(), .uart_tx_unused(), .uart_rx_unused(1'b1)
+        .cpu_wr(uart_write), .cpu_addr(mem_addr[1:0]),
+        .cpu_wdata(uart_wdata), .cpu_rdata(uart_rdata_from_core),
+        .cpu_ack(uart_ack_from_core), .uart_tx_unused(), .uart_rx_unused(1'b1)
     );
 `else
     uart_core #(.CLK_FREQ(25_000_000), .BAUD(115200)) UART(
         .clk(clk), .rstn(rstn),
-        .cpu_wr(uart_write), .cpu_addr(2'd0),
-        .cpu_wdata(uart_wdata), .cpu_rdata(uart_rdata),
-        .cpu_ack(), .uart_tx(uart_tx), .uart_rx(uart_rx)
+        .cpu_wr(uart_write), .cpu_addr(mem_addr[1:0]),
+        .cpu_wdata(uart_wdata), .cpu_rdata(uart_rdata_from_core),
+        .cpu_ack(uart_ack_from_core), .uart_tx(uart_tx), .uart_rx(uart_rx)
     );
 `endif
 
@@ -61,7 +65,7 @@ module top(
                 ready<=1;
             end else if(mem_addr[31:16]==UART_BASE[31:16]) begin
                 if(|mem_wstrb) begin uart_wdata<=mem_wdata[7:0]; uart_write<=1; end
-                rdata<={31'b0,uart_rx_ready}; ready<=1;
+                rdata <= {24'b0, uart_rdata_from_core}; ready<=1;
             end else if(mem_addr[31:16]==LED_BASE[31:16]) begin
                 if(|mem_wstrb) led<=mem_wdata[7:0];
                 rdata<={24'b0,led}; ready<=1;
