@@ -1,0 +1,90 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Mon Oct 27 10:08:50 2025
+# Process ID         : 8048
+# Current directory  : D:/uart-to-usb-v2-main/uart-to-usb-v2-main
+# Command line       : vivado.exe -mode batch -source deploy.tcl
+# Log file           : D:/uart-to-usb-v2-main/uart-to-usb-v2-main/vivado.log
+# Journal file       : D:/uart-to-usb-v2-main/uart-to-usb-v2-main\vivado.jou
+# Running On         : LAPTOP-32F8C2TA
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 5 7535HS with Radeon Graphics        
+# CPU Frequency      : 3294 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16312 MB
+# Swap memory        : 9663 MB
+# Total Virtual      : 25976 MB
+# Available Virtual  : 8045 MB
+#-----------------------------------------------------------
+source deploy.tcl
+# set proj_name "riscv_led_shell"
+# set proj_dir [file normalize "./vivado_project"]
+# if {[file exists $proj_dir]} { file delete -force $proj_dir }
+# create_project $proj_name $proj_dir -part xc7z020clg400-1
+create_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 540.230 ; gain = 248.230
+# set_property board_part digilentinc.com:arty-z7-20:part0:1.1 [current_project]
+# add_files [glob ./src/*.v]
+# add_files -fileset constrs_1 [glob ./constrs/*.xdc]
+# set_property top top [current_fileset]
+# launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Mon Oct 27 10:09:05 2025] Launched synth_1...
+Run output will be captured here: D:/uart-to-usb-v2-main/uart-to-usb-v2-main/vivado_project/riscv_led_shell.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Mon Oct 27 10:09:05 2025] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Mon Oct 27 10:09:08 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 537.879 ; gain = 244.836
+Command: synth_design -top top -part xc7z020clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 9352
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1267.457 ; gain = 492.590
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-2716] syntax error near '|' [D:/uart-to-usb-v2-main/uart-to-usb-v2-main/src/top.v:153]
+ERROR: [Synth 8-2716] syntax error near 'else' [D:/uart-to-usb-v2-main/uart-to-usb-v2-main/src/top.v:158]
+ERROR: [Synth 8-10307] Verilog 2000 keyword 'else' used in incorrect context [D:/uart-to-usb-v2-main/uart-to-usb-v2-main/src/top.v:158]
+INFO: [Synth 8-10285] module 'top' is ignored due to previous errors [D:/uart-to-usb-v2-main/uart-to-usb-v2-main/src/top.v:194]
+INFO: [Synth 8-9084] Verilog file 'D:/uart-to-usb-v2-main/uart-to-usb-v2-main/src/top.v' ignored due to errors
+ERROR: [Synth 8-12188] Failed to read verilog 'D:/uart-to-usb-v2-main/uart-to-usb-v2-main/src/top.v'
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1368.727 ; gain = 593.859
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+8 Infos, 0 Warnings, 0 Critical Warnings and 5 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 27 10:09:36 2025...
+[Mon Oct 27 10:09:41 2025] synth_1 finished
+ERROR: [Vivado 12-13638] Failed runs(s) : 'synth_1'
+wait_on_runs: Time (s): cpu = 00:00:00 ; elapsed = 00:00:35 . Memory (MB): peak = 551.453 ; gain = 0.000
+ERROR: [Common 17-39] 'wait_on_runs' failed due to earlier errors.
+
+    while executing
+"wait_on_run synth_1"
+    (file "deploy.tcl" line 14)
+INFO: [Common 17-206] Exiting Vivado at Mon Oct 27 10:09:41 2025...

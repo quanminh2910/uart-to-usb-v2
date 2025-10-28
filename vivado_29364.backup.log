@@ -1,0 +1,60 @@
+#-----------------------------------------------------------
+# Vivado v2025.1 (64-bit)
+# SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+# IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+# SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+# Start of session at: Tue Oct 28 16:27:10 2025
+# Process ID         : 29364
+# Current directory  : D:/uart-to-usb-v2-main/uart-to-usb-v2-main
+# Command line       : vivado.exe -mode batch -source deploy.tcl
+# Log file           : D:/uart-to-usb-v2-main/uart-to-usb-v2-main/vivado.log
+# Journal file       : D:/uart-to-usb-v2-main/uart-to-usb-v2-main\vivado.jou
+# Running On         : LAPTOP-32F8C2TA
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : AMD Ryzen 5 7535HS with Radeon Graphics        
+# CPU Frequency      : 3294 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 16312 MB
+# Swap memory        : 9663 MB
+# Total Virtual      : 25976 MB
+# Available Virtual  : 10752 MB
+#-----------------------------------------------------------
+source deploy.tcl
+# set proj_name "riscv_led_shell"
+# set proj_dir [file normalize "./vivado_project"]
+# if {[file exists $proj_dir]} { file delete -force $proj_dir }
+# create_project $proj_name $proj_dir -part xc7z020clg400-1
+create_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:13 . Memory (MB): peak = 538.953 ; gain = 247.008
+# set_property board_part digilentinc.com:arty-z7-20:part0:1.1 [current_project]
+# add_files [glob ./src/*.v]
+# add_files -fileset constrs_1 [glob ./constrs/*.xdc]
+# set_property top top [current_fileset]
+# launch_runs synth_1 -jobs 4
+WARNING: [Vivado 12-7122] Auto Incremental Compile:: No reference checkpoint was found in run synth_1. Auto-incremental flow will not be run, the standard flow will be run instead.
+[Tue Oct 28 16:27:29 2025] Launched synth_1...
+Run output will be captured here: D:/uart-to-usb-v2-main/uart-to-usb-v2-main/vivado_project/riscv_led_shell.runs/synth_1/runme.log
+# wait_on_run synth_1
+[Tue Oct 28 16:27:29 2025] Waiting for synth_1 to finish...
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+
+****** Vivado v2025.1 (64-bit)
+  **** SW Build 6140274 on Thu May 22 00:12:29 MDT 2025
+  **** IP Build 6138677 on Thu May 22 03:10:11 MDT 2025
+  **** SharedData Build 6139179 on Tue May 20 17:58:58 MDT 2025
+  **** Start of session at: Tue Oct 28 16:27:31 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source top.tcl -notrace
+create_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:11 . Memory (MB): peak = 537.109 ; gain = 246.117
+Command: synth_design -top top -part xc7z020clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
