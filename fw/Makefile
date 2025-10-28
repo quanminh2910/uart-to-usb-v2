@@ -1,5 +1,5 @@
-CC = riscv32-unknown-elf-gcc
-OBJCOPY = riscv32-unknown-elf-objcopy
+CC = riscv64-unknown-elf-gcc
+OBJCOPY = riscv64-unknown-elf-objcopy
 CFLAGS = -Os -march=rv32i -mabi=ilp32 -nostartfiles -ffreestanding
 
 firmware.elf: uart_shell_led.c
